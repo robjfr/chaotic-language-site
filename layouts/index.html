@@ -9,7 +9,7 @@
 </div>
 
 <section class="recent-posts">
-    <h2>Recent Articles</h2>
+    <h2>Articles</h2>
     {{ range (where .Site.RegularPages "Section" "post") }}
     <article class="post-summary">
         <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
