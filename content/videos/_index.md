@@ -1,8 +1,4 @@
 ---
 title: "Videos"
-description: "Video content exploring chaos theory, linguistics, and complex systems"
+description: "To come"
 ---
-
-# Videos
-
-Watch presentations, demonstrations, and discussions on chaos theory, linguistics, and complex systems.
