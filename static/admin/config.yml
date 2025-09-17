@@ -1,0 +1,74 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "posts"
+    label: "Articles"
+    folder: "content/post"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Draft", name: "draft", widget: "boolean", default: false}
+      - {label: "Tags", name: "tags", widget: "list", required: false}
+      - {label: "Categories", name: "categories", widget: "list", required: false}
+      - {label: "Summary", name: "summary", widget: "text", required: false}
+      - {label: "Featured Image", name: "featured_image", widget: "image", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "videos"
+    label: "Videos"
+    folder: "content/videos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Draft", name: "draft", widget: "boolean", default: false}
+      - {label: "YouTube ID", name: "youtube_id", widget: "string", required: false}
+      - {label: "Vimeo ID", name: "vimeo_id", widget: "string", required: false}
+      - {label: "External Link", name: "external_link", widget: "string", required: false}
+      - {label: "Tags", name: "tags", widget: "list", required: false}
+      - {label: "Summary", name: "summary", widget: "text", required: false}
+      - {label: "Description", name: "body", widget: "markdown"}
+
+  - name: "podcasts"
+    label: "Podcasts"
+    folder: "content/podcasts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Draft", name: "draft", widget: "boolean", default: false}
+      - {label: "Episode Number", name: "episode", widget: "number", required: false}
+      - {label: "Duration", name: "duration", widget: "string", required: false}
+      - {label: "Spotify Link", name: "spotify_link", widget: "string", required: false}
+      - {label: "Apple Podcasts Link", name: "apple_link", widget: "string", required: false}
+      - {label: "External Audio Link", name: "audio_link", widget: "string", required: false}
+      - {label: "Tags", name: "tags", widget: "list", required: false}
+      - {label: "Summary", name: "summary", widget: "text", required: false}
+      - {label: "Show Notes", name: "body", widget: "markdown"}
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "About"
+        name: "about"
+        file: "content/about.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Date", name: "date", widget: "datetime"}
+          - {label: "Body", name: "body", widget: "markdown"}
+      - label: "Home Page"
+        name: "home"
+        file: "content/_index.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}

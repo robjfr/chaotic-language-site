@@ -1,0 +1,31 @@
+{{ define "main" }}
+<header>
+    <h1>{{ .Title }}</h1>
+    {{ if .Content }}
+    <div class="description">
+        {{ .Content }}
+    </div>
+    {{ end }}
+</header>
+
+<section class="posts">
+    {{ range .Pages }}
+    <article class="post-summary">
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <time>{{ .Date.Format "January 2, 2006" }}</time>
+        {{ if .Params.summary }}
+        <p>{{ .Params.summary }}</p>
+        {{ else if .Summary }}
+        <p>{{ .Summary }}</p>
+        {{ end }}
+        {{ if .Params.tags }}
+        <div class="tags">
+            {{ range .Params.tags }}
+            <span class="tag">{{ . }}</span>
+            {{ end }}
+        </div>
+        {{ end }}
+    </article>
+    {{ end }}
+</section>
+{{ end }}
