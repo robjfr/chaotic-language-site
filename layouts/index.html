@@ -8,16 +8,68 @@
     {{ .Content }}
 </div>
 
-<section class="recent-posts">
-    <h2>Articles</h2>
-    {{ range (where .Site.RegularPages "Section" "post") }}
-    <article class="post-summary">
-        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-        <time>{{ .Date.Format "January 2, 2006" }}</time>
-        {{ if .Params.summary }}
-        <p>{{ .Params.summary }}</p>
-        {{ end }}
-    </article>
-    {{ end }}
+<section class="portfolio">
+
+    <div class="portfolio-section">
+        <h3>Presentations</h3>
+        <div class="portfolio-grid">
+            {{ range .Params.presentations }}
+            <div class="portfolio-item">
+                {{ if eq .type "video" }}
+                <iframe src="https://www.youtube.com/embed/{{ .embed_id }}{{ if .start_time }}?start={{ .start_time }}{{ end }}"
+                        width="100%"
+                        height="400"
+                        style="border: none; border-radius: 8px; margin-bottom: 1rem;"
+                        loading="lazy"
+                        allowfullscreen>
+                </iframe>
+                {{ else if .thumbnail }}
+                <img src="{{ .thumbnail }}" alt="{{ .title }}">
+                {{ end }}
+                <h4><a href="{{ .url }}"{{ if hasPrefix .url "http" }} target="_blank"{{ end }}>{{ .title }}</a></h4>
+                <p>{{ .description | safeHTML }}</p>
+                <span class="portfolio-type">{{ if eq .type "video" }}Video{{ else }}Research{{ end }} • {{ .year }}</span>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+
+    <div class="portfolio-section">
+        <h3>Podcasts</h3>
+        <div class="portfolio-grid">
+            {{ range .Params.podcasts }}
+            <div class="portfolio-item">
+                {{ if eq .type "iframe" }}
+                <iframe src="{{ .url }}"
+                        width="100%"
+                        height="400"
+                        style="border: none; border-radius: 8px; margin-bottom: 1rem;"
+                        loading="lazy">
+                </iframe>
+                {{ end }}
+                <h4><a href="{{ .url }}" target="_blank">{{ .title }}</a></h4>
+                <p>{{ .description | safeHTML }}</p>
+                <span class="portfolio-type">{{ if eq .type "iframe" }}Media{{ else }}Discussion{{ end }} • {{ .year }}</span>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+
+    <div class="portfolio-section">
+        <h3>Projects & Discussions</h3>
+        <div class="portfolio-grid">
+            {{ range .Params.projects }}
+            <div class="portfolio-item">
+                {{ if .thumbnail }}
+                <img src="{{ .thumbnail }}" alt="{{ .title }}">
+                {{ end }}
+                <h4><a href="{{ .url }}"{{ if hasPrefix .url "http" }} target="_blank"{{ end }}>{{ .title }}</a></h4>
+                <p>{{ .description | safeHTML }}</p>
+                <span class="portfolio-type">{{ if eq .type "image" }}Code{{ else }}Forum{{ end }} • {{ .year }}</span>
+            </div>
+            {{ end }}
+        </div>
+    </div>
 </section>
+
 {{ end }}

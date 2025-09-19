@@ -1,0 +1,19 @@
+{{- $image := .Src -}}
+{{- $alt := .Alt -}}
+{{- $size := .Size -}}
+
+{{- if $image -}}
+  {{- if (strings.HasPrefix $image "http") -}}
+    <img src="{{ $image }}" alt="{{ $alt }}" class="img-fluid">
+  {{- else -}}
+    {{- $img := resources.Get $image -}}
+    {{- if $img -}}
+      {{- if $size -}}
+        {{- $img = $img.Resize $size -}}
+      {{- end -}}
+      <img src="{{ $img.RelPermalink }}" alt="{{ $alt }}" class="img-fluid">
+    {{- else -}}
+      <!-- Image not found: {{ $image }} -->
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

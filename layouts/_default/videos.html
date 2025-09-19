@@ -1,0 +1,29 @@
+{{ define "main" }}
+<div class="content">
+    {{ .Content }}
+</div>
+
+<section class="portfolio">
+    <div class="portfolio-section">
+        <div class="portfolio-grid">
+            {{ $homePage := .Site.GetPage "/" }}
+            {{ range $homePage.Params.presentations }}
+            {{ if eq .type "video" }}
+            <div class="portfolio-item">
+                <iframe src="https://www.youtube.com/embed/{{ .embed_id }}{{ if .start_time }}?start={{ .start_time }}{{ end }}"
+                        width="100%"
+                        height="400"
+                        style="border: none; border-radius: 8px; margin-bottom: 1rem;"
+                        loading="lazy"
+                        allowfullscreen>
+                </iframe>
+                <h4><a href="{{ .url }}" target="_blank">{{ .title }}</a></h4>
+                <p>{{ .description | safeHTML }}</p>
+                <span class="portfolio-type">Video • {{ .year }}</span>
+            </div>
+            {{ end }}
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }}

@@ -1,13 +1,17 @@
 baseURL: 'https://chaoticlanguage.com'
 languageCode: en-us
 title: 'Chaotic Language'
+# theme: ananke
 
 params:
-  description: "Research and articles on chaos theory, linguistics, and complex systems"
+  description: "An exploration of the idea cognition, and language as our best window into cognition, are a dynamic expansion of the world not a compression of the world."
 
 menu:
   main:
-    - name: Articles
+    - name: 2003 Website
+      url: /old_site/
+      weight: 10
+    - name: 2008-21 Drupal Site Articles
       url: /post/
       weight: 20
     - name: Videos
@@ -29,6 +33,6 @@ markup:
     style: github
 
 outputs:
-  home: [HTML, RSS, JSON]
+  home: [HTML, RSS]
   page: [HTML]
   section: [HTML, RSS]

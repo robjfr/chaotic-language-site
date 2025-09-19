@@ -1,0 +1,279 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="content-type" CONTENT="text/html;charset=iso-8859-1">
+<TITLE>Chaotic language - home</TITLE>
+
+<!-- START META INFO -->
+<META NAME="Publisher" CONTENT="Robert Freeman">
+<LINK REL="Publisher" HREF="mailto:info@chaoticlanguage.com">
+<META NAME="keywords" CONTENT="Natural Language, Natural language parser, Natural language processing, Natural language parsing, tagger, Machine Translation, tagging, Corpus Linguistics, Corpora, Memory-based learning, Machine Learning, Generative Lexicon, Analogy, pattern recognition, analogical modeling, Vector model, distributed representation, word vector, similarity modeling">
+<META NAME="Description" CONTENT="Demonstrates new algorithm for parsing Natural Language">
+<META NAME="Date.Modified" CONTENT="20020222">
+<!-- END META INFO -->
+
+<style type="text/css">
+h1 {font-size: 600%}
+p {font-size: 100%}
+p2 {font-size: 120%}
+</style>
+
+</HEAD>
+
+<BODY BGCOLOR="white" LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<!--<BODY BGCOLOR="white">//-->
+
+<CENTER>
+
+<!-- START BANNER -->
+<table BORDER=0 CELLSPACING=0 CELLPADDING=2 WIDTH="100%">
+<tr>
+<td BGCOLOR="RED">
+
+ <a href="http://demo.chaoticlanguage.com"
+        onMouseOver="document.images.animate.src='demoani12.gif'; return true"
+        onMouseOut="document.images.animate.src='demoani13.gif'">
+	<IMG SRC="demoani13.gif" ALT="Try the demo" WIDTH="92" HEIGHT="50" HSPACE="0" VSPACE="0" BORDER="0" ALIGN=RIGHT NAME="animate"></a>
+<!--
+<a href="http://107.170.212.160/"
+        onMouseOver="document.images.animate.src='demoani13.gif'; return true"
+        onMouseOut="document.images.animate.src='demoani13.gif'">
+	<IMG SRC="demoani13.gif" ALT="Try the demo" WIDTH="92" HEIGHT="50" HSPACE="0" VSPACE="0" BORDER="0" ALIGN=RIGHT NAME="animate"></a>
+
+-->
+	<img src="banner5.jpg" alt="Chaotic Language Banner" vspace="0" border="0">
+
+<!--
+<font face="verdana, arial, helvetica" color="red" size=6>
+<b><font color="black" size=7>
+        Chaotic Language<br>
+</font>
+<!--<font face="verdana, arial, helvetica" color="red" size=2>-->
+<!--<font color="black" size=-1>
+	Language in Patterns
+</font>-->
+
+
+
+</td>
+</tr>
+</table>
+<!-- END BANNER -->
+
+
+<!-- START NAVIGATION BAR -->
+<table BORDER=0 CELLSPACING=0 CELLPADDING=6 BGCOLOR="#000000" WIDTH="100%">
+<tr>
+<td BGCOLOR="black">
+<!--
+<b><font face="verdana, arial, helvetica" color="#FFFFFF" size=-1>
+        <a href="/"><img SRC="home.gif" alt="home" BORDER=0 height=10 width=50></a>
+        <a href="http://www.collectivelanguage.com/cgi-bin/engparse.cgi"><img SRC="parser.gif" alt="parser" BORDER=0 height=10 width=50></a>
+        <a href="http://www.collectivelanguage.com/cgi-bin/engword.cgi"><img SRC="dictionary.gif" alt="dictionary" BORDER=0 height=10 width=50></a>
+        <a href="/contact.html"><img SRC="contact.gif" alt="contact" BORDER=0 height=10 width=50></a>
+</font></b>
+-->
+</td>
+</tr>
+</table>
+<!-- END NAVIGATION BAR-->
+
+
+<BR>
+<!-- START MAIN CONTENT -->
+
+<TABLE WIDTH="100%" BORDER=0 CELLPADDING=0 CELLSPACING=7>
+	<TR VALIGN=TOP ALIGN=LEFT>
+	<!--<TD WIDTH="70%">-->
+	<TD width="450">
+
+		<p>We are developing software to robustly analyse natural language.</p>
+
+		<p>Current technology fails to reach a satisfactory level of accuracy for even basic tasks.</p>
+		
+		<p>Our software represents a totally different approach to the problem. This approach reverses the traditional relationship between example and rule. In our system grammatical rules depend on examples, examples do not depend on rules.
+<!--
+		<p>In addition to attempting robust and accurate parsing this software can be thought of as attempting the yet more difficult task of grammatical induction. Unlike other systems which require years of heavily labour intensive annotation of texts to produce grammars and tree-banks, all the information needed is extracted automatically from ordinary texts.</p>
+-->
+		<p>This makes it ideal for application to less studied languages. So far the algorithms have been applied with success to Danish and Chinese, in addition to English.</p>
+
+		<p>We seek collaboration for the improvement of the existing code and application to further languages.</p>
+
+		<img src="chineseSample.jpg" alt="Image of sample parser output for Chinese" width="450" height="650" HSPACE="5" VSPACE="4" BORDER="0" ALIGN=center>
+
+                </TD>
+		<!-- BEGIN MARGIN NOTES -->
+		<!--<TD WIDTH="30%">-->
+		<TD>
+                        <h3>Parsing Problem</h3>
+			<p>The problem addressed by this system is branching association. It is central to all tasks of language description and comprehension.</p>
+
+			<p>In short how do you teach a machine to distinguish between	the following:</p>
+
+			<center><table width = 50% border = 2>
+			<caption align = "center">
+				<b>Branching ambiguity</b>
+			</caption>
+			<tr><td bgcolor = "lightblue">
+
+			<table>
+				<caption align = "center" "nowrap">((foreign exchange) dealer)</caption>
+				<tr><td align ="center">/</td><td valign = "center">\</td>
+				<tr><td>
+
+					<table border = 0>
+					<caption align = "center" "nowrap">(foreign exchange)</caption>
+					<tr><td align ="center">/</td><td align = "center">\</td>
+					<tr><td align = "center" "nowrap">foreign</td><td align = "center" "nowrap">exchange</td></table>
+
+				</td>
+
+				<td>dealer</td></tr>
+
+			</table>
+
+			</td>
+			<td bgcolor = "lightblue">
+
+			<table>
+				<caption align = "center" "nowrap">(foreign (exchange dealer))</caption>
+				<tr><td align ="center">/</td><td align = "center">\</td>
+
+				<tr><td align = "center" >foreign</td>
+
+				<td>
+
+					<table border = 0>
+					<caption align = "center" "nowrap">(exchange dealer)</caption>
+					<tr><td align ="right">/</td><td align = "left">\</td>
+					<tr><td align = "center" "nowrap">exchange</td><td align = "center" "nowrap">dealer</td></table>
+
+				</td></tr>
+
+			</table>
+
+			</td></tr>
+
+			</table>
+			</center>
+
+
+                        <p>Current technology generally tries to classify the words and describe which combinations are possible between classes, i.e. to describe natural language in terms of grammar.</p>
+			E.g.<br>
+			NP &lt;- ADJ + N<br>
+			NP &lt;- NP + N<br>
+
+			<p>Essentially we do the same, with the twist that we replace the classes with vectors or lists of examples. This means, by virtue of one combination or another, we can find an infinite number of "virtual" rules at run time. The exact set depending on the exact words in the sentence (and the examples relevant to an exact body of experience.)</p>
+			E.g.
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+
+<TR VALIGN=TOP ALIGN=LEFT>
+<TD>
+<!--<FONT FACE="Geneva,Verdana,Arial,Helvetica,sans-serif" SIZE=1 CLASS="G10">-->
+
+<table border=1 cellspacing=0 cols=2 bgcolor = "lightblue">
+		<caption align=top>
+		<b></b> </caption>
+		<tr><th>NP (foreign exchange)</th></tr>
+<tr><td bgcolor = "lightblue"><entry><word>foreign exchange</word></td></entry></td>
+
+
+
+</tr><tr><td bgcolor = "lightblue"><entry><word>foreign bonds</word></td></entry></td>
+</tr><tr><td bgcolor = "lightblue"><entry><word>stock exchange</word></td></entry></td>
+</tr><tr><td bgcolor = "lightblue"><entry><word>the stock</word></td></entry></td>
+</tr><tr><td bgcolor = "lightblue"><entry><word>foreign currency</word></td></entry></td>
+</tr><tr><td bgcolor = "lightblue"><entry><word>the securities</word></td></entry></td>
+</tr><tr><td bgcolor = "lightblue"><entry><word>foreign languages</word></td></entry></td>
+
+</tr><tr><td bgcolor = "lightblue"><entry><word>currency</word></td></entry></td>
+</tr><tr><td bgcolor = "lightblue"><entry><word>foreign ministry</word></td></entry></td>
+</tr><tr><td bgcolor = "lightblue"><entry><word>discount</word></td></entry></td>
+</tr><tr><td bgcolor = "lightblue"><entry><word>foreign residents</word></td></entry></td>
+</tr><tr><td bgcolor = "lightblue"><entry><word>equity</word></td></entry></td>
+</tr><tr><td bgcolor = "lightblue"><entry><word>the capital</word></td></entry></td>
+</tr><tr><td bgcolor = "lightblue"><entry><word>exchange</word></td></entry></td>
+</tr><tr><td bgcolor = "lightblue"><entry><word>stock</word></td></entry></td>
+
+</tr><tr><td bgcolor = "lightblue"><entry><word>global</word></td></entry></td>
+
+</tr></table>
+
+</TD>
+
+<TD>&lt;-</TD>
+<TD>
+<!--<FONT FACE="Geneva,Verdana,Arial,Helvetica,sans-serif" SIZE=1 CLASS="G10">-->
+<table border=1 cellspacing=0 cols=5 bgcolor = "lightblue">
+					<caption align=top></caption>
+					<tr>
+						<th>ADJ (foreign)</th><th>N (exchange)</th></tr>
+
+<tr></tr>
+<tr></tr>
+<tr><td bgcolor = "red">foreign</td><td bgcolor = "red">exchange</td></tr>
+<tr><td>...</td><td>...</td></tr>
+<tr><td>...</td><td>...</td></tr>
+<tr><td bgcolor = "red">foreign</td><td bgcolor = "red">bonds</td></tr>
+<tr><td>...</td><td>...</td></tr>
+<tr><td bgcolor = "red">stock</td><td bgcolor = "red">exchange</td></tr>
+<tr><td bgcolor = "red">foreign</td><td bgcolor = "red">currency</td></tr>
+
+<tr><td>...</td><td>...</td></tr>
+<tr><td>...</td><td>...</td></tr>
+
+<tr><td bgcolor = "red">currency</td><td bgcolor = "red">exchange</td></tr>
+
+<tr><td>...</td><td>...</td></tr>
+
+<tr><td bgcolor = "red">securities</td><td bgcolor = "red">exchange</td></tr>
+
+<tr><td bgcolor = "red">foreign</td><td bgcolor = "red">bond</td></tr>
+<tr><td>...</td><td>...</td></tr>
+<tr><td>...</td><td>...</td></tr>
+<tr><td bgcolor = "red">regional</td><td bgcolor = "red">exchanges</td></tr>
+<tr><td bgcolor = "red">regional</td><td bgcolor = "red">exchange</td></tr>
+<tr><td>...</td><td>...</td></tr>
+
+</table>
+</TD></TR></TABLE>
+<!--
+			The table above shows part of a genuine, dynamically generated, "rule" in the system. Some noise has been filtered
+			out for clarity, but you
+			can check the entries against a "live" version later.<br><br>
+			-->
+			<p>The order expressed by such ad-hoc rules is, in a sense, chaotic. Chaotic in the sense of unstable order rather than disorder. This chaotic character gives the system much greater power than fixed perspectives of order captured as rules.</p>
+
+			<!--
+                        <h3>Outline of Algorithm</h3>
+			<p>The algorithm stems from a long tradition of distributional analysis. The general idea is that each word is represented by a list of other words which occur in similar contexts.</p>
+
+                        <p>Such lists can be easily culled from a sample (corpus) of the language (see
+			also similar lists by <A HREF="http://www.cs.ualberta.ca/~lindek/demos.htm#WordSimilarity">Dekang Lin</A>).</p>
+
+			<p>The major difference in the case of our system is that different clusters are extracted, chaotically, for each sentence. That makes it consistent with modern trends of grammatical thought such the Functional Linguistic thread of <a href="http://eserver.org/home/hopper/emergence.html">Emergent Grammar</a>.</p>
+			-->
+
+		</TD>
+		<!-- END MARGIN NOTES -->
+	</TR>
+</TABLE>
+
+<!-- END MAIN CONTENT -->
+
+<p align="center">
+<!--<FONT FACE="Geneva,Verdana,Arial,Helvetica,sans-serif" SIZE=1>-->
+<FONT SIZE=1>
+Copyright &copy; 2004 <a href="mailto:info@chaoticlanguage.com">Robert Freeman</a><br>
+</FONT>
+</TD>
+</TR>
+</TABLE>
+
+</CENTER>
+
+</BODY>
+</HTML>
+
+

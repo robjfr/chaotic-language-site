@@ -1,0 +1,28 @@
+{{ define "main" }}
+<div class="content">
+    {{ .Content }}
+</div>
+
+<section class="portfolio">
+    <div class="portfolio-section">
+        <div class="portfolio-grid">
+            {{ $homePage := site.GetPage "/" }}
+            {{ range $homePage.Params.podcasts }}
+            <div class="portfolio-item">
+                {{ if eq .type "iframe" }}
+                <iframe src="{{ .url }}"
+                        width="100%"
+                        height="400"
+                        style="border: none; border-radius: 8px; margin-bottom: 1rem;"
+                        loading="lazy">
+                </iframe>
+                {{ end }}
+                <h4><a href="{{ .url }}" target="_blank">{{ .title }}</a></h4>
+                <p>{{ .description | safeHTML }}</p>
+                <span class="portfolio-type">{{ if eq .type "iframe" }}Media{{ else }}Discussion{{ end }} • {{ .year }}</span>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }}
