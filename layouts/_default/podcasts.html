@@ -6,7 +6,7 @@
 <section class="portfolio">
     <div class="portfolio-section">
         <div class="portfolio-grid">
-            {{ $homePage := site.GetPage "/" }}
+            {{ $homePage := .Site.GetPage "/" }}
             {{ range $homePage.Params.podcasts }}
             <div class="portfolio-item">
                 {{ if eq .type "iframe" }}
@@ -16,6 +16,10 @@
                         style="border: none; border-radius: 8px; margin-bottom: 1rem;"
                         loading="lazy">
                 </iframe>
+                {{ else if .thumbnail }}
+                <a href="{{ .url }}" target="_blank">
+                    <img src="{{ .thumbnail }}" alt="{{ .title }}">
+                </a>
                 {{ end }}
                 <h4><a href="{{ .url }}" target="_blank">{{ .title }}</a></h4>
                 <p>{{ .description | safeHTML }}</p>
