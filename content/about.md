@@ -17,4 +17,4 @@ But I think we're still not quite there yet. There is a trick about distributed 
 
 ## Contact
 
-For questions or collaboration opportunities feel free to email admin@chaoticlanguage.com
+For questions or collaboration opportunities feel free to email admin-at-chaoticlanguage.com

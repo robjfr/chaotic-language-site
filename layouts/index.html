@@ -24,7 +24,9 @@
                         allowfullscreen>
                 </iframe>
                 {{ else if .thumbnail }}
-                <img src="{{ .thumbnail }}" alt="{{ .title }}">
+                <a href="{{ .url }}"{{ if hasPrefix .url "http" }} target="_blank"{{ end }}>
+                    <img src="{{ .thumbnail }}" alt="{{ .title }}">
+                </a>
                 {{ end }}
                 <h4><a href="{{ .url }}"{{ if hasPrefix .url "http" }} target="_blank"{{ end }}>{{ .title }}</a></h4>
                 <p>{{ .description | safeHTML }}</p>
@@ -46,6 +48,10 @@
                         style="border: none; border-radius: 8px; margin-bottom: 1rem;"
                         loading="lazy">
                 </iframe>
+                {{ else if .thumbnail }}
+                <a href="{{ .url }}" target="_blank">
+                    <img src="{{ .thumbnail }}" alt="{{ .title }}">
+                </a>
                 {{ end }}
                 <h4><a href="{{ .url }}" target="_blank">{{ .title }}</a></h4>
                 <p>{{ .description | safeHTML }}</p>
@@ -61,7 +67,9 @@
             {{ range .Params.projects }}
             <div class="portfolio-item">
                 {{ if .thumbnail }}
-                <img src="{{ .thumbnail }}" alt="{{ .title }}">
+                <a href="{{ .url }}"{{ if hasPrefix .url "http" }} target="_blank"{{ end }}>
+                    <img src="{{ .thumbnail }}" alt="{{ .title }}">
+                </a>
                 {{ end }}
                 <h4><a href="{{ .url }}"{{ if hasPrefix .url "http" }} target="_blank"{{ end }}>{{ .title }}</a></h4>
                 <p>{{ .description | safeHTML }}</p>

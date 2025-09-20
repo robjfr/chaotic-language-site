@@ -1,0 +1,148 @@
+LANGUAGE STRUCTURE
+
+Linguists are interested in the system of language.
+
+As computational linguists we are interested in how that system relates to the physical structure of language, strings of words, which we seek to manipulate, and interpret. (Though non-computational linguists often think about other aspects of language, like variation, history, and a particularly popular one today - how it is used: application, pragmatics, function. Function is a big school.)
+
+STRUCTURE OF STRINGS
+The structure we generally look at is the structure of individual strings. --- I guess this goes back a long way: traditional Western grammar has this flavour, the Romans? I don't know how other cultures dealt with it, but the Western tradition was strongly into logical systems relating components, anyway. People attempting to build a science of language did not limit themselves to this* but it was the lowest common denominator of "folk" knowledge (rather like the flat earth theory = "its flat where I live." No point in explaining its round because for most local applications it _is_ best to think of it as flat.)
+
+From the point of view of science, I think it has such monopoly on the thoughts of computational linguists, in particular, because it was the aspect of language tackled by Chomsky, who was the first person to bring mathematical rigour to linguistic study. He showed us you could describe a large number of complex strings with a simple system of a relatively small number of logical rules, and that was such a useful idea for computational linguists that we've been doing it ever since.
+
+But being able to describe a lot of strings is not the same thing as being able to explain them. There are more constraints in natural language than CFG provides us with. When we try to apply these constraints within the framework of the CFG system we find that the relevant structure evades us.
+
+There seems to be little which is general about the structure of any string. We end up writing more and more accurate descriptions to capture all the variations.
+
+Originally we wrote these descriptions by hand, but as the number increases it becomes difficult to keep our descriptions consistant. That is why statistical methods have become popular. Because they provide a means of collecting a large number of string patterns and relating them in a consistant way.
+
+I think the problem, as we are beginning to realize more and more, is that there really _are_ an infinite variety of patterns in the strings of a natural language. Its not that we can't find the common patterns, all the patterns are different (though they may be similar). This is one reason why there is so much talk about collocations these days, researchers have realized that each group of words really _is_ structurally unique. You can't predict what it will be on any general structural or semantic grounds, it just is. Because it is unique you can't just give someone the words and tell them how to build a collocation, you have to give them the collocation itself.
+
+E.g.	Howarth (examples of "mistakes", i.e. non-natural sounding language, produced by ESL students): 
+
+	"..._attempts_ and researches have been _done_ by psychologist to find..."
+
+	"Make" and "attempt" go together, not "do" and "attempt".
+
+
+	"Those learners usually _pay_ more _efforts_ in adopting a new language..."
+
+	"Pay" and "attention" go together, not "Pay" and "efforts".
+	
+This combines with evidence from the likes of psychological studies  and others, that many groups of words seem to be stored as a whole, and simply retrieved or modified rather than built from scratch when they are used (ref. Bever, Lewis, Nattinger, Pawley and Syder, and almost anyone doing stuff on collocations).
+
+Taken together, this kind of evidence (i.e. that word groups are unique, and stored ready made) indicates that the ***exact structure of the strings themselves might not be a particularly relevant parameter in the language system.*** The "moving parts" of language might be elsewhere.
+
+WHAT STRUCTURE?
+But a system must have structure. If the structure of the strings is not relevant, what is?
+
+Well, there many kinds of structure. Usually we look at the structure of individual strings. But we could look at structure among the strings.
+
+There are two examples here.
+
+-One is a human population: it is usually more easy to describe the structure of populations (individuals, families, neighbourhoods) than it is to describe the actual people in those populations.
+
+-Another is a wave: it is easier to describe the distribution of elements making up a wave than it is to describe its shape. (N.B. I think Fourier analysis essentially describes waves in terms of a distribution of elements of a fixed position (or frequency of motion). The properties of the whole wave is the sum (i.e. proportional to the average) of the properties of its elements.)
+
+Note that the fact that it is easier to describe these things in these ways is because their essential system functions along these parameters. Human populations are distibutions of people (or, at another level, genes). Waves are distributions of energy, matter, etc.
+
+The point is that the structure you see is not always the essential structure. A wave is most essentially a group of water drops. We get a much simpler description of it if we look at how the water is collected together than if we try to classify all the shapes those groups of water drops form in the sea. In particular what happens to a wave, how it interacts with other waves, is largely independent of minute variations in its surface form.
+
+So I am saying that traditionally in computational linguistics we may have been looking at the wrong parameters.
+
+POPULATION MODEL FOR LANGUAGE STRUCTURE
+So why don't we look at what kind of theory we could develop for language structure based on the structure _among_ strings.
+
+Just like a human population the set of all strings in a given language breaks down into families, groups and sub-populations. The members of these are still individuals, and unique, but they all resemble each other in some way, to some extent.
+
+To identify these structures we need some meaningful concept of similarity between strings. The easiest candidate is to just compare strings element by element and define those differing in one element (or group of elements?) as similar. This measure identifies:
+
+This is a pen. &
+This is a book.
+
+as "similar" for instance. I know it also identifies "This zebra a pen." as similar too, but at this stage we are just identifying relationships in the strings we have. We can think about how to use those relationships, our proposed new structural parameters, to restrict the creation of new strings later.
+
+We can easily classify an entire corpus into interlocking sets of varying similarity by this simple measure. The "structure" we find will be a fuzzy set of interrelated groups, the members of which will tend to have similar sequences, but each of which, in general, may be unique.
+
+Having identified these groups by the mechanism of similarity, we can then propose them as our new grammatical parameters (just as the CFG rules which describe other aspects of string structure were proposed to be parameters of grammatical freedom in the past). We propose that similar strings, by the same simple element by element comparison definition, are grammatical, ***with the condition that the elements of the new strings must be found in adjacent groups***.
+
+For instance we would allow "This zebra a pen." as grammatical _if_ we could find an element in a group close to "This is a pen." etc. which had "zebra" in the relevant position.
+
+A "grammar" of this kind, which I might call an example-based grammar, or a "population grammar", is essentially defining grammaticality by analogy. There will be no consistant logical structure to the strings produced, and indeed as new strings are created by analogy and the weight of the population shifts, it is to be expected that the logical structure of the members will constantly change, which is an interesting prediction.
+
+PRACTICAL EXAMPLE
+As a practical example we can see that a theory of this type predicts the kind of discrimination and errors noted by Howarth, above:
+
+Recall the example:
+	"Those learners usually _pay_ more _efforts_ in adopting a new language..."
+
+	*pay efforts
+
+Howarth explains this as interference between two sets of acceptable structures, the "production of a blocked combination in an overlapping cluster":
+
+His "clusters" are:
+	Pay attention
+	Pay a call
+and
+	Make a call
+	Make an effort
+
+because "a call" is used by both "Pay" and "Make" it seems the writer hypothesizes "an effort" can too. Howarth is not proposing a grammar to represent this process, he is just noting that mixing seems to take place. Interestingly, though, the apparent processes involved in the error are just the sort of processes which I am proposing for my "grammar". "Pay a call.", "Make a call." and "Make an effort." would all be within two "similarity groups" of each other by the definition of similarity given above, and by the definition of my grammar a mixture of their elements would also be grammatical. So a "naive" grammar, which did not have positive information about the collocational pattern of "Pay attention", might be expected to hypothesize "*Pay efforts" according to the rules I have proposed.
+
+Similarly for:
+
+	"..._attempts_ and researches have been _done_ by psychologist to find..."
+	*do an attempt
+
+	Do a study
+	Make an attempt
+	Make a study
+
+because "a study" can be used by both "do" and "make" the student seems to hypothesize "an attempt" can too.
+
+It might not seem too exciting that an example-based grammar reproduces mistakes, it is not hard to make a grammar which is wrong, but the sequence and type of errors which are occuring are exactly those which this grammar predicts. The order is quite the reverse of that predicted by traditional grammars. According to these, students would start out with basic concepts of syntactic and semantic class and gradually restrict these as they learned the habitual combinations. But these students are not producing any combination which is semantically reasonable, they are mixing overlapping collocations. In fact Howarth notes that true "blends"  which seem to hypothesize new collocations on the basis of comparable meaning (e.g. "*and we can _pay_ particular _care_...to look at the fortunes of United Kingdom trade", "blending" "PAY attention" and "TAKE care", with no overlapping associations) are characteristic of better students and native speakers. It is not that learners start out with basic concepts of use and gradually learn the habitual combinations, it really seems that they start out with habitual combinations and gradually develop these into concepts of general use.
+
+EVIDENCE
+What evidence do we have that stucture among the strings might be more relevant than the structure of the strings themselves? Well, it is already widely accepted that this is the relevant structure for the system of language meanings. Systemic Functional Linguistics is based on the idea. From what I understand of it Halliday, following on from a tradition established by Firth some 50 years ago, argues that the meaning of any language act depends on the choice of one act over another. So, a statement like "I'll get it." doesn't mean anything by itself, it only has meaning when compared to other possible statements, like "There's someone at the door.", "I don't know where it is.", or even "He'll be angry."
+
+It seems that Halliday carries this furthur and hypothesizes that the development of language, historically and in children, can be seen as a progressive development of semantic concepts by analogy (which is just the other side of contrast).
+
+(N.B. as an example of alternate structural views of language it is interesting to look at the structure of nested analogy which Halliday identifies in a series of strings in one of his analyses based on meaning:
+
+For example the set of sentences:
+
+glass cracks more quickly the harder you press it
+cracks in glass grow faster the more pressure is put on
+glass crack growth is faster if greater stress is applied
+the rate of glass crack growth depends on the magnitude of the applied stress
+glass crack growth rate is associated with applied stress magnitude
+
+Can be assigned a structural analysis:
+
+'thing a undergoes process b in a manner c to the extent that in manner x person w does action y to thing a'
+'[complex] thing b-in-a acquires property d in manner c to the extent that [abstract] thing xy has process z done to it'
+'[complex abstract] thing abd has attribute c under condition that [abstract] thing xy has process z done to it'
+'[complex abstract] thing c-of-abd is caused by [complex abstract] thing x-of-zy]'
+'[complex abstract] thing abdc causes/is caused by [complex abstract] thing zyx'
+
+(Grammar and the Construction of Educational Knowledge M.A,K Halliday, 1996)
+
+This "projection of surface structure onto the axis of increasingly nested meaning" has clearly identified interesting dimensions of grammatical variation. The sequence of sentences have largely unrelated phrase structures, yet there is a regularity to the changes. The grammatical variation according to the parameter increasing metaphor has revealed quite different grammatical "moving parts". You get the feeling that it would be more useful to know the breakdown of one of these sentences according to this structure than it would be to know if the component parts could be formally described as relative clauses or finite verbs.)
+
+Anyway, Halliday is defining concepts by analogy (of meaning) and identifying them by contrast (of structure). Both are based on structures of relationships.
+
+FORM AND MEANING
+The form of this theory is close to that which Halliday proposes for meaning, both depend on analogy and contrast. It would be nice to see how they fit together.
+
+Halliday associates meaning with choice between strings. I am proposing that structure be defined by the similarities between strings. Both could be parameterized by the new grammatical structure. This structure of population groups has both a norm and an extent, structure can be associated with the norm and meaning with the extent.
+
+Each string by itself would be meaningless, but when viewed in contrast to the other members of it's group, and at a higher level, with higher groups of discourse "grammar" or other, it could be assigned meaning. Because even for a single string the number of possible groups it could be contrasted with would be infinite it could have an infinity of subtle distinctions of meaning.
+
+Interpretation of the string in a processor would amount to comparing the string produced with the context of strings which could have been produced. We could read of meaning at various levels, depending on the extent of context we wished to take into account.
+
+I think this is the first theory of (physical) language structure which has a really natural place to code meaning, and one withproperties which meaning in language is widely acknowledged to exhibit (viz. Halliday's theory).
+
+N.B. You could almost say that Halliday's theory predicts that grammatical form should be defined in this way. He associates meaning with a distribution of form, and form with distributions of meaning, his Systemic Networks. If you take these two ideas together i.e. you "plug in" his definition of meaning to his definition of form then you have form also specified by (distributions of distributions = ) clusters of forms. I don't think he tries to do this, however, probably because going in this direction the complexity of the representation increases exponentially at each stage. He would be taking one string and trying to create the population which it came from. It would require him to specify a Systemic Network for each sentence, to specify the terminal nodes of each of those networks in terms of a separate network of contrasted strings, and then to cluster the strings in those networks to find the centers of form, as opposed to the centers of meaning. A massive task. It is much easier to start with the representation and find the general structure than it is to start with the general structure and find the representation. By the same token it is much easier to develop at theory of population structures in terms of meanings because they are a direct expression of the general structures. Any forms we see are just particular examples of a given population, we see the populations only as meanings, as in the "glass cracks" example, above.
+
+
+
+* If you look back over the history of linguistic theory you can find many interesting allusions to ideas similar to those presented here. For example, Kenneth Pike uses exactly the same analogy to human population that I use. He looks for "analogies between linuistic structure and the structure of society." de Beaugrande sec. 5.84.
